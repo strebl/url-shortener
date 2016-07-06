@@ -58,7 +58,7 @@ class ShortUrlGenerator {
 
     /**
      * Generates a random string.
-     * 
+     *
      * @return string
      */
     public function generateRandomString()
