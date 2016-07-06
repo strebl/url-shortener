@@ -13,7 +13,7 @@
 
 $factory->define(App\Url::class, function (Faker\Generator $faker) {
     return [
-        'url' => $faker->url,
-        'shorten' => base_convert(rand(10000,99999), 10, 36),
+        'url'     => $faker->url,
+        'shorten' => base_convert(rand(10000, 99999), 10, 36),
     ];
 });

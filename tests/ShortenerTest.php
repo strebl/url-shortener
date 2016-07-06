@@ -1,8 +1,6 @@
 <?php
 
 use App\Url;
-use Illuminate\Foundation\Testing\WithoutMiddleware;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class ShortenerTest extends TestCase
@@ -89,7 +87,7 @@ class ShortenerTest extends TestCase
     public function it_redirects_to_the_long_url()
     {
         factory(Url::class)->create([
-            'url' => 'http://localhost',
+            'url'     => 'http://localhost',
             'shorten' => '12qw',
         ]);
 
@@ -103,13 +101,13 @@ class ShortenerTest extends TestCase
     public function it_shows_short_url_information()
     {
         factory(Url::class)->create([
-            'url' => 'https://google.ch',
+            'url'     => 'https://google.ch',
             'shorten' => '12qw',
         ]);
 
         $this->visit('12qw/info')
             ->see('https://google.ch')
-            ->see($this->baseUrl . '/12qw');
+            ->see($this->baseUrl.'/12qw');
     }
 
     /**

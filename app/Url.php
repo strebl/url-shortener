@@ -10,12 +10,12 @@ class Url extends Model
 
     public static function shorten($url)
     {
-        if($record = static::whereUrl($url)->first()) {
+        if ($record = static::whereUrl($url)->first()) {
             return $record;
         }
 
         return static::create([
-            'url' => $url,
+            'url'     => $url,
             'shorten' => ShortUrlGenerator::generate(),
         ]);
     }

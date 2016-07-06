@@ -2,14 +2,14 @@
 
 namespace App;
 
-class ShortUrlGenerator {
-
+class ShortUrlGenerator
+{
     /**
      * The generator instance.
      *
      * @var ShortUrlGenerator|null
      */
-    static $instance;
+    public static $instance;
 
     /**
      * @var Url
@@ -21,7 +21,8 @@ class ShortUrlGenerator {
      *
      * @param Url $url
      */
-    protected function __construct(Url $url) {
+    protected function __construct(Url $url)
+    {
         $this->url = $url;
     }
 
@@ -32,8 +33,8 @@ class ShortUrlGenerator {
      */
     public static function generate()
     {
-        if(static::$instance === null) {
-            static::$instance = new ShortUrlGenerator(new Url);
+        if (static::$instance === null) {
+            static::$instance = new self(new Url());
         }
 
         return static::$instance->generateUniqueShortUrl();
@@ -48,8 +49,7 @@ class ShortUrlGenerator {
     {
         $shorten = $this->generateRandomString();
 
-        if( $this->url->whereShorten($shorten)->first() )
-        {
+        if ($this->url->whereShorten($shorten)->first()) {
             return $this->generateUniqueShortUrl();
         }
 

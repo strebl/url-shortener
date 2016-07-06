@@ -5,8 +5,6 @@ namespace App\Http\Controllers;
 use App\Url;
 use Illuminate\Http\Request;
 
-use App\Http\Requests;
-
 class UrlController extends Controller
 {
     /**
@@ -19,7 +17,9 @@ class UrlController extends Controller
 
     /**
      * Create a short url.
+     *
      * @param Request $request
+     *
      * @return $this
      */
     public function store(Request $request)
@@ -42,7 +42,7 @@ class UrlController extends Controller
      */
     public function show($shorten)
     {
-        if(!$url = Url::whereShorten($shorten)->first()) {
+        if (!$url = Url::whereShorten($shorten)->first()) {
             return redirect('/')->withErrors([
                 'url' => 'This short URL doesn\'t exist',
             ]);
