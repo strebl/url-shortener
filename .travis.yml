@@ -12,12 +12,13 @@ matrix:
       - php: hhvm
 
 env:
-  - APP_ENV="testing" APP_DEBUG=true DB_CONNECTION="sqlite" DB_DATABASE=":memory:" APP_KEY="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" BUGSNAG_API_KEY=""
+  - APP_ENV="testing" APP_DEBUG=true DB_CONNECTION="sqlite" APP_KEY="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" BUGSNAG_API_KEY=""
 
 sudo: false
 
 install:
   - travis_retry composer install --no-interaction --prefer-source --dev
+  - touch database/database.sqlite
   - php artisan env
   - php artisan migrate
 
