@@ -1,0 +1,170 @@
+$enable-flex: true;
+
+@import "node_modules/bootstrap/scss/bootstrap";
+@import "colors";
+
+html, body {
+  height: 100%;
+  background-color: $background-color;
+}
+
+body {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 300;
+  color: white;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+
+.flex-item {
+
+  margin: auto;
+  width: 100%;
+}
+
+.site-header {
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: 4rem;
+  line-height: 1;
+}
+
+.site-header__link {
+  font-size: 4rem;
+  display: block;
+  color: inherit;
+
+  &:hover, &:active, &:focus {
+    color: inherit;
+    text-decoration: inherit;
+    outline: none;
+  }
+}
+
+.site-header__description {
+  color: lighten($background-color, 20%);
+  font-size: 1.8rem;
+}
+
+.shortener-form {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.shortener-form__url {
+  flex-grow: 1;
+  border: none;
+  height: 60px;
+  padding: 0 32px;
+  outline: none;
+  color: $background-color;
+}
+
+.shortener-form__shorten-button {
+  width: 60px;
+  height: 60px;
+  border: 2px solid white;
+  background-color: white;
+  margin-left: 2px;
+  color: $background-color;
+
+  &:hover {
+    color: white;
+    background-color: transparent;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.shortener-form__info {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 50px;
+  background-color: #AB8FDC;
+  color: white;
+  padding: 10px 32px;
+  margin-bottom: 6px;
+
+  &--small {
+    margin-top: 8px;
+    background-color: #2980b9;
+    color: white;
+    font-size: 0.85rem;
+  }
+}
+
+.shortener-form__info__icon {
+  font-size: 1.2rem;
+  margin-right: 10px;
+}
+
+.shortener-form__shorten-button__icon {
+  font-size: 1.5rem;
+}
+
+.shortener-form__result {
+  width: 100%;
+  display: flex;
+  height: 60px;
+  color: $background-color;
+
+  >div {
+    display: flex;
+    align-items: center;
+    padding: 10px 10px;
+    margin-bottom: 2px;
+  }
+}
+
+.shortener-form__result__title {
+  margin-right: 1px;
+  min-width: 120px;
+  color: white;
+  background-color: lighten($background-color, 20%);
+}
+
+.shortener-form__result__body {
+  flex-grow: 1;
+  background-color: white;
+}
+
+.shortener-form__result__button {
+  width: 58px;
+  height:58px;
+  border: 2px solid white;
+  background-color: white;
+  margin-left: 2px;
+  color: $background-color;
+
+  i {
+    font-size: 1.3rem;
+  }
+
+  &:hover {
+    color: white;
+    background-color: transparent;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+@media (min-width: 600px) {
+  .flex-item {
+    width: 600px;
+  }
+  .site-header__link {
+    font-size: 6rem;
+  }
+  .site-header__description {
+    font-size: 2.3rem;
+  }
+}
