@@ -9,7 +9,7 @@
 
     <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400" rel="stylesheet">
     <link rel="stylesheet" href="{{ elixir('css/app.css') }}">
-    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 
 </head>
 <body>
