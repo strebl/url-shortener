@@ -9,7 +9,7 @@
                     <i class="shortener-form__info__icon ion-alert"></i>{{ $errors->first('url') }}
                 </div>
             @endif
-            <input type="text" name="url" id="url" class="shortener-form__url" value="{{ old('url') }}" placeholder="Paste your long url here">
+            <input type="url" name="url" id="url" class="shortener-form__url" value="{{ old('url') }}" placeholder="Paste your long url here">
             <button type="submit" id="shorten-url" class="shortener-form__shorten-button"><i class="shortener-form__shorten-button__icon ion-ios-arrow-right"></i></button>
 
             <div class="shortener-form__info shortener-form__info--small">
