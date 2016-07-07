@@ -7,7 +7,9 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-    <title>strebl.ch URL Shortener</title>
+    <title>strebl.ch URL shortener</title>
+
+    <meta name="description" content="Simple and Responsive URL Shortener - Transform your long URLs to short URLs">
 
     <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400" rel="stylesheet">
     <link rel="stylesheet" href="{{ elixir('css/app.css') }}">
