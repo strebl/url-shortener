@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="{{ elixir('css/app.css') }}">
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 
+    @include('layouts.favicons')
 </head>
 <body>
 <div class="flex-container">
