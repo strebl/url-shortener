@@ -22,3 +22,10 @@ script: vendor/bin/phpunit
 
 after_failure:
  - cat storage/logs/*.log
+
+notifications:
+  webhooks:
+    urls:
+      secure: "IOW5br9vRgZOyyREmOJ+e/kSSQTtP5Di4KjmwXlwOlEt+vtSR2KdNR5okbcNTmLHQItVe48QIRupcgIYVfhvXNIDroTABvR9YX+zq5bfnr55Fw1JMFFRgeCRK7xb/tA/CFKcYoJVe6SSP2AKE9syo2cNNVYdhw/itYLdRIzoR101I9vG4ZJ345+STv+Epmz72PQ/I7bXISyfhdmDteQtaZlr+2L4ln4BnJMGSHwhunZ1CgP3OqlXqpaP/bgBu4FSXso1XYFg8VF2yCVT5X3tYwey7NSKfZnC9z4/baBN8PvD5P/BzEXqHme1gGdvZeTqY3HZOHu0wiQlyM7VHwY6Re3z7JcInsspzlIeqBdNwAnQ8ap/IX1AyjTLyoyRY159T8hrzIPye/0ElrZ2tfKmH91Widojggu7d94dVqhiSqaCFMjhaPGxaRxo3KRtjAukJqfc15Z5ojMoowNqoalD3Loz/bx8qmDP1WQ5nrZ4VFhbZ2qBnAc0ep/il5tQTBB3aY+UyeIAYDInezv/lycAKWh0DDC14ApkJ7zsHamUrgxSqcD/uwcgOtORHqHOm00dPV9QEmSJPOV5rB9V3BpwHpg/COeYt4qDptIBKhQv3mnA0z/R2eaH1HkSQJZLAES/tKjAK33YBUuPqPeMkgtGdUXCN9idcDWNg43uLNxK1LE="
+    on_success: always
+    on_failure: never
