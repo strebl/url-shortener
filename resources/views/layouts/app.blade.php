@@ -9,7 +9,7 @@
 
     <title>strebl.ch URL shortener</title>
 
-    <meta name="description" content="Simple and Responsive URL Shortener - Transform your long URLs to short URLs">
+    <meta name="description" content="Simple and Responsive URL Shortener - Transform your long links to short link">
 
     <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400" rel="stylesheet">
     <link rel="stylesheet" href="{{ elixir('css/app.css') }}">
