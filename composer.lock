@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "c284a9c122da36c99a8b6597bdce7aa6",
-    "content-hash": "8b1485987e7c5949da82435d403e52e8",
+    "hash": "8d4767a04271db0022912c84c8632d09",
+    "content-hash": "abc2d9d5675581463423e479e9185743",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -160,6 +160,56 @@
                 "string"
             ],
             "time": "2015-11-06 14:35:42"
+        },
+        {
+            "name": "ipunkt/laravel-analytics",
+            "version": "1.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ipunkt/laravel-analytics.git",
+                "reference": "cf3fa8a2e0e85ac4c0d559a801307c4cd6780544"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ipunkt/laravel-analytics/zipball/cf3fa8a2e0e85ac4c0d559a801307c4cd6780544",
+                "reference": "cf3fa8a2e0e85ac4c0d559a801307c4cd6780544",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/config": "~5.0",
+                "illuminate/session": "~5.0",
+                "illuminate/support": "~5.0",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "laravel/framework": "~5.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Ipunkt\\LaravelAnalytics\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Robert Kummer",
+                    "email": "r.kummer@ipunkt.biz"
+                }
+            ],
+            "description": "Analytics tracking for Laravel",
+            "keywords": [
+                "analytics",
+                "google analytics",
+                "javascript",
+                "laravel",
+                "php",
+                "statistics"
+            ],
+            "time": "2016-06-28 07:20:12"
         },
         {
             "name": "jakub-onderka/php-console-color",

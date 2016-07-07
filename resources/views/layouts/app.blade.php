@@ -28,5 +28,6 @@
     </div>
 </div>
 <script src="{{ elixir('js/main.js') }}"></script>
+{!! Analytics::render() !!}
 </body>
 </html>
