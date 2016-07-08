@@ -31,7 +31,7 @@ return [
     | https://developers.google.com/analytics/devguides/collection/protocol/v1/parameters#tid
     |
     */
-    'tracking_id' => env('ANALYTICS_TRACKING_ID' ,'UA-XXXXXXXX-1'),
+    'tracking_id' => env('ANALYTICS_TRACKING_ID', 'UA-XXXXXXXX-1'),
 
     /*
     |--------------------------------------------------------------------------
