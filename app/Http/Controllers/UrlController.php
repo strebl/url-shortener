@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Analytics;
 use App\Url;
 use Illuminate\Http\Request;
 
@@ -47,6 +48,8 @@ class UrlController extends Controller
                 'url' => 'This short URL doesn\'t exist',
             ]);
         }
+
+        Analytics::pageview($shorten);
 
         return redirect()->to($url->url);
     }

@@ -162,6 +162,7 @@ return [
          * Package Service Providers...
          */
         Ipunkt\LaravelAnalytics\AnalyticsServiceProvider::class,
+        Irazasyed\LaravelGAMP\LaravelGAMPServiceProvider::class,
 
     ],
 
