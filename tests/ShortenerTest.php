@@ -32,7 +32,7 @@ class ShortenerTest extends TestCase
 
         $url = Url::latest()->first();
 
-        $this->seePageIs('/')
+        $this->seePageIs('/hello/info')
              ->see('long url')
              ->see('short url')
              ->see('https://example-testing.url')

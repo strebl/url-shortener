@@ -31,7 +31,7 @@ class UrlController extends Controller
 
         $url = Url::shorten($request->get('url'));
 
-        return view('url.show')->with(compact('url'));
+        return redirect($url->shorten.'/info');
     }
 
     /**
