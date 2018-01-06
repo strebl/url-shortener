@@ -44,6 +44,28 @@ class ShortenerTest extends TestCase
     /**
      * @test
      */
+    public function it_creates_a_short_url_via_api()
+    {
+        $generator = $this->getGeneratorMock();
+
+        $this->generatorWillOutput('hello', $generator);
+
+        $data = ['url' => 'http://url-shortener.dev'];
+
+        $url = Url::latest()->first();
+
+        $result = $this->json('post','api/urls', $data);
+        $result->seeJson([
+            'url' => 'http://example.com',
+            'shorten_url' => 'http://url-shortener.dev/hello'
+        ]);
+
+        $this->resetGeneratorMock();
+    }
+
+    /**
+     * @test
+     */
     public function it_allows_only_real_urls()
     {
         $this->visit('/')
