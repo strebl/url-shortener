@@ -23,7 +23,7 @@ class UrlController extends Controller
             'url' => 'required|url',
         ]);
 
-        $url = Url::shorten($request->get('url'));
+        $url = Url::shorten($request->input('url'));
 
         return [
             'shorten_url' => config('app.url').'/'.$url->shorten,
