@@ -50,14 +50,13 @@ class ShortenerTest extends TestCase
 
         $this->generatorWillOutput('hello', $generator);
 
-        $data = ['url' => 'http://url-shortener.dev'];
-
-        $url = Url::latest()->first();
+        $data = ['url' => 'http://example.com'];
 
         $result = $this->json('post','api/urls', $data);
+
         $result->seeJson([
             'url' => 'http://example.com',
-            'shorten_url' => 'http://url-shortener.dev/hello'
+            'shorten_url' => config('app.url').'/hello',
         ]);
 
         $this->resetGeneratorMock();
