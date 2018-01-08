@@ -1,11 +1,8 @@
 language: php
 
 php:
-  - 5.5.9
-  - 5.5
-  - 5.6
-  - 7.0
-  - hhvm
+  - 7.1
+  - 7.2
 
 env:
   - APP_ENV="testing" APP_DEBUG=true DB_CONNECTION="sqlite" APP_KEY="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" BUGSNAG_API_KEY=""
