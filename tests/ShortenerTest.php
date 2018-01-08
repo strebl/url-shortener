@@ -52,10 +52,10 @@ class ShortenerTest extends TestCase
 
         $data = ['url' => 'http://example.com'];
 
-        $result = $this->json('post','api/urls', $data);
+        $result = $this->json('post', 'api/urls', $data);
 
         $result->seeJson([
-            'url' => 'http://example.com',
+            'url'         => 'http://example.com',
             'shorten_url' => config('app.url').'/hello',
         ]);
 

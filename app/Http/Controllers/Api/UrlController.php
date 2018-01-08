@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Http\Controllers\Controller;
 use App\Url;
 use Illuminate\Http\Request;
-
-use App\Http\Requests;
-use App\Http\Controllers\Controller;
 
 class UrlController extends Controller
 {
@@ -27,7 +25,7 @@ class UrlController extends Controller
 
         return [
             'shorten_url' => config('app.url').'/'.$url->shorten,
-            'url' => $request->input('url')
+            'url'         => $request->input('url'),
         ];
     }
 }
