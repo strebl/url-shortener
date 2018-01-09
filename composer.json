@@ -8,7 +8,8 @@
         "php": ">=5.5.9",
         "laravel/framework": "5.2.*",
         "ipunkt/laravel-analytics": "^1.2",
-        "ramsey/uuid": "^3.4"
+        "ramsey/uuid": "^3.4",
+        "irazasyed/laravel-gamp": "^1.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
@@ -16,8 +17,7 @@
         "phpunit/phpunit": "~4.0",
         "symfony/css-selector": "2.8.*|3.0.*",
         "symfony/dom-crawler": "2.8.*|3.0.*",
-        "symfony/finder": "^2.5|^3.0",
-        "irazasyed/laravel-gamp": "^1.0"
+        "symfony/finder": "^2.5|^3.0"
     },
     "autoload": {
         "classmap": [
