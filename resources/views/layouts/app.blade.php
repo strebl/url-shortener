@@ -7,7 +7,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-    <title>strebl.ch URL shortener</title>
+    <title>{{config('app.name')}}</title>
 
     <meta name="description" content="Simple and Responsive URL Shortener - Transform your long links to short link">
 
@@ -21,7 +21,7 @@
 <div class="flex-container">
     <div class="flex-item">
         <div class="site-header">
-            <a class="site-header__link" href="/">strebl.ch</a>
+            <a class="site-header__link" href="/">{{config('app.name')}}</a>
             <div class="site-header__description">URL shortener</div>
         </div>
         @yield('content')
