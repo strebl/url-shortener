@@ -14,7 +14,7 @@ use App\Url;
 */
 
 Artisan::command('scan-urls {--limit=10}', function (\App\Services\SafeBrowsing $safeBrowsing) {
-    if($limit = $this->option('limit') > 500) {
+    if ($limit = $this->option('limit') > 500) {
         return $this->error('Limit to high!');
     }
 
