@@ -1,9 +1,6 @@
 <?php
 
 use App\Services\SafeBrowsing;
-use Illuminate\Foundation\Testing\WithoutMiddleware;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class SafeBrowsingTest extends TestCase
 {

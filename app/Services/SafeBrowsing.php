@@ -6,7 +6,6 @@ use Zttp\Zttp;
 
 class SafeBrowsing
 {
-
     /**
      * @param string|iterable $urls
      */
@@ -18,10 +17,10 @@ class SafeBrowsing
             $this->safeSearchUrl(),
             [
                 'threatInfo' => [
-                    'threatTypes' => ['MALWARE', 'SOCIAL_ENGINEERING'],
-                    'platformTypes' => ['ALL_PLATFORMS'],
+                    'threatTypes'      => ['MALWARE', 'SOCIAL_ENGINEERING'],
+                    'platformTypes'    => ['ALL_PLATFORMS'],
                     'threatEntryTypes' => ['URL'],
-                    'threatEntries' => [
+                    'threatEntries'    => [
                         ['url' => $urls],
                     ],
                 ],
