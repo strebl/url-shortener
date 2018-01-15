@@ -39,4 +39,8 @@ return [
         'secret' => env('STRIPE_SECRET'),
     ],
 
+    'safe_search' => [
+        'key' => env('SAFE_BROWSING_API_KEY'),
+    ],
+
 ];
