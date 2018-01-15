@@ -2,6 +2,9 @@
 
 My private url shortener
 
+**Don't forget to add the Safe Browsing API key to the `.env` file**  
+`SAFE_BROWSING_API_KEY=xxx`
+
 **Example URL**
 [https://strebl.ch/ybc](https://strebl.ch/ybc)
 
