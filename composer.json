@@ -10,7 +10,8 @@
         "ipunkt/laravel-analytics": "^1.2",
         "ramsey/uuid": "^3.4",
         "irazasyed/laravel-gamp": "^1.0",
-        "laravel/tinker": "^1.0"
+        "laravel/tinker": "^1.0",
+        "kitetail/zttp": "^0.3.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

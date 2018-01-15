@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Events\UrlShortened;
 use Illuminate\Database\Eloquent\Model;
 
 class Url extends Model
@@ -14,9 +15,13 @@ class Url extends Model
             return $record;
         }
 
-        return static::create([
+        $url = static::create([
             'url'     => $url,
             'shorten' => ShortUrlGenerator::generate(),
         ]);
+
+        event(new UrlShortened($url));
+
+        return $url;
     }
 }
