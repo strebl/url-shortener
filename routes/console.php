@@ -13,10 +13,14 @@ use App\Url;
 |
 */
 
-Artisan::command('scan-urls', function (\App\Services\SafeBrowsing $safeBrowsing) {
+Artisan::command('scan-urls {--limit=10}', function (\App\Services\SafeBrowsing $safeBrowsing) {
+    if($limit = $this->option('limit') > 500) {
+        return $this->error('Limit to high!');
+    }
+
     $query = Url::orderByDesc('scanned_at')
         ->where('scanned_at', '<', \Illuminate\Support\Carbon::now()->subDay())
-        ->take(10);
+        ->take($limit);
     $urls = $query->get()->pluck('url');
 
     $harmfulUrls = $urls->intersect(
@@ -26,9 +30,7 @@ Artisan::command('scan-urls', function (\App\Services\SafeBrowsing $safeBrowsing
     $query->update(['scanned_at' => \Illuminate\Support\Carbon::now()]);
 
     if (!$harmfulUrls->count()) {
-        $this->info('No harmful URLs detected.');
-
-        return;
+        return $this->info('No harmful URLs detected.');
     }
 
     Url::whereIn('url', $harmfulUrls)->delete();
