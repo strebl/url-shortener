@@ -6,18 +6,17 @@
     "type": "project",
     "require": {
         "php": ">=5.5.9",
-        "laravel/framework": "5.3.*",
+        "laravel/framework": "5.4.*",
         "ipunkt/laravel-analytics": "^1.2",
         "ramsey/uuid": "^3.4",
-        "irazasyed/laravel-gamp": "^1.0"
+        "irazasyed/laravel-gamp": "^1.0",
+        "laravel/tinker": "^1.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
         "mockery/mockery": "0.9.*",
-        "phpunit/phpunit": "~4.0",
-        "symfony/css-selector": "3.1.*",
-        "symfony/dom-crawler": "3.1.*",
-        "symfony/finder": "^2.5|^3.0"
+        "phpunit/phpunit": "~6.0",
+        "laravel/browser-kit-testing": "^3.0"
     },
     "autoload": {
         "classmap": [
@@ -28,9 +27,9 @@
         }
     },
     "autoload-dev": {
-        "classmap": [
-            "tests/TestCase.php"
-        ]
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
     },
     "scripts": {
         "post-root-package-install": [

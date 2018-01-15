@@ -1,5 +1,7 @@
 <?php
 
+namespace Tests;
+
 use App\Services\SafeBrowsing;
 
 class SafeBrowsingTest extends TestCase
