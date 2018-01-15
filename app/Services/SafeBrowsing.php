@@ -6,7 +6,6 @@ use Zttp\Zttp;
 
 class SafeBrowsing
 {
-
     /**
      * @param string|iterable $urls
      *

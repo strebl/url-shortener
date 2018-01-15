@@ -26,7 +26,7 @@ class CheckUrl
     /**
      * Handle the event.
      *
-     * @param  UrlShortened  $event
+     * @param UrlShortened $event
      */
     public function handle(UrlShortened $event)
     {

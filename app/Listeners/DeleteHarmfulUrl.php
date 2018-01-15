@@ -6,11 +6,10 @@ use App\Events\HarmfulUrlDetected;
 
 class DeleteHarmfulUrl
 {
-
     /**
      * Handle the event.
      *
-     * @param  HarmfulUrlDetected $event
+     * @param HarmfulUrlDetected $event
      */
     public function handle(HarmfulUrlDetected $event)
     {

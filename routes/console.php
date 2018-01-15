@@ -1,7 +1,6 @@
 <?php
 
 use App\Url;
-use Illuminate\Foundation\Inspiring;
 
 /*
 |--------------------------------------------------------------------------

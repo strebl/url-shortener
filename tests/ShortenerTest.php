@@ -166,6 +166,7 @@ class ShortenerTest extends TestCase
 
         Event::assertDispatched(UrlShortened::class, function ($event) {
             return $event->url->url === 'https://example-testing.url';
+
             return $event->url->shorten === 'hello';
         });
 
@@ -207,6 +208,7 @@ class ShortenerTest extends TestCase
 
         Event::assertDispatched(HarmfulUrlDetected::class, function ($event) {
             return $event->url->url === 'http://ianfette.org';
+
             return $event->url->shorten === 'hello';
         });
 

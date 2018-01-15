@@ -3,9 +3,8 @@
 namespace App\Events;
 
 use App\Url;
-use Illuminate\Queue\SerializesModels;
 use Illuminate\Foundation\Events\Dispatchable;
-
+use Illuminate\Queue\SerializesModels;
 
 class HarmfulUrlDetected
 {
