@@ -1,5 +1,6 @@
 <?php
 
+use App\Url;
 use Illuminate\Foundation\Inspiring;
 
 /*
@@ -13,6 +14,27 @@ use Illuminate\Foundation\Inspiring;
 |
 */
 
-Artisan::command('inspire', function () {
-    $this->comment(Inspiring::quote());
-})->describe('Display an inspiring quote');
+Artisan::command('scan-urls', function (\App\Services\SafeBrowsing $safeBrowsing) {
+    $query = Url::orderByDesc('scanned_at')
+        ->where('scanned_at', '<', \Illuminate\Support\Carbon::now()->subDay())
+        ->take(10);
+    $urls = $query->get()->pluck('url');
+
+    $harmfulUrls = $urls->intersect(
+        $safeBrowsing->check($urls->toArray())
+    );
+
+    $query->update(['scanned_at' => \Illuminate\Support\Carbon::now()]);
+
+    if (!$harmfulUrls->count()) {
+        $this->info('No harmful URLs detected.');
+
+        return;
+    }
+
+    Url::whereIn('url', $harmfulUrls)->delete();
+
+    $harmfulUrls->each(function ($harmfulUrl) {
+        $this->error('Harmful URL detected and deleted: '.$harmfulUrl);
+    });
+})->describe('Scan all URLs using the safe browser API.');

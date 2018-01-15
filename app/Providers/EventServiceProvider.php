@@ -12,8 +12,11 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
-        'App\Events\SomeEvent' => [
-            'App\Listeners\EventListener',
+        \App\Events\UrlShortened::class => [
+            \App\Listeners\CheckUrl::class,
+        ],
+        \App\Events\HarmfulUrlDetected::class => [
+            \App\Listeners\DeleteHarmfulUrl::class,
         ],
     ];
 

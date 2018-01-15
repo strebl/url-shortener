@@ -2,8 +2,11 @@
 
 namespace Tests;
 
+use App\Events\HarmfulUrlDetected;
+use App\Events\UrlShortened;
 use App\Url;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
+use Illuminate\Support\Facades\Event;
 
 class ShortenerTest extends TestCase
 {
@@ -29,16 +32,16 @@ class ShortenerTest extends TestCase
         $this->generatorWillOutput('hello', $generator);
 
         $this->visit('/')
-             ->type('https://example-testing.url', 'url')
-             ->press('shorten-url');
+            ->type('https://example-testing.url', 'url')
+            ->press('shorten-url');
 
         $url = Url::latest()->first();
 
         $this->seePageIs('/hello/info')
-             ->see('long url')
-             ->see('short url')
-             ->see('https://example-testing.url')
-             ->see('url-shortener.dev/hello');
+            ->see('long url')
+            ->see('short url')
+            ->see('https://example-testing.url')
+            ->see('url-shortener.dev/hello');
 
         $this->resetGeneratorMock();
     }
@@ -145,5 +148,82 @@ class ShortenerTest extends TestCase
         $this->visit('12qw/info')
             ->seePageIs('/')
             ->see('This short URL doesn\'t exist');
+    }
+
+    /**
+     * @test
+     */
+    public function it_fires_an_url_shortened_event()
+    {
+        $generator = $this->getGeneratorMock();
+        Event::fake();
+
+        $this->generatorWillOutput('hello', $generator);
+
+        $this->visit('/')
+            ->type('https://example-testing.url', 'url')
+            ->press('shorten-url');
+
+        Event::assertDispatched(UrlShortened::class, function ($event) {
+            return $event->url->url === 'https://example-testing.url';
+            return $event->url->shorten === 'hello';
+        });
+
+        $this->resetGeneratorMock();
+    }
+
+    /**
+     * @test
+     */
+    public function shortening_a_safe_url_does_not_fire_an_harmful_url_detected_event()
+    {
+        $generator = $this->getGeneratorMock();
+        Event::fake([HarmfulUrlDetected::class]);
+
+        $this->generatorWillOutput('hello', $generator);
+
+        $this->visit('/')
+            ->type('https://google.com', 'url')
+            ->press('shorten-url');
+
+        Event::assertNotDispatched(HarmfulUrlDetected::class);
+
+        $this->resetGeneratorMock();
+    }
+
+    /**
+     * @test
+     */
+    public function shortening_a_harmful_url_fires_an_harmful_url_detected_event()
+    {
+        $generator = $this->getGeneratorMock();
+        Event::fake([HarmfulUrlDetected::class]);
+
+        $this->generatorWillOutput('hello', $generator);
+
+        $this->visit('/')
+            ->type('http://ianfette.org', 'url')
+            ->press('shorten-url');
+
+        Event::assertDispatched(HarmfulUrlDetected::class, function ($event) {
+            return $event->url->url === 'http://ianfette.org';
+            return $event->url->shorten === 'hello';
+        });
+
+        $this->resetGeneratorMock();
+    }
+
+    /**
+     * @test
+     */
+    public function the_harmful_url_gets_deleted_if_detected()
+    {
+        $this->assertEquals(0, Url::whereUrl('http://ianfette.org')->count());
+
+        $this->visit('/')
+            ->type('http://ianfette.org', 'url')
+            ->press('shorten-url');
+
+        $this->assertEquals(0, Url::whereUrl('http://ianfette.org')->count());
     }
 }
