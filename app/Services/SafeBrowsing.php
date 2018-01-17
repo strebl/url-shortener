@@ -54,7 +54,7 @@ class SafeBrowsing
         );
 
         if ($response->status() != 200 && $response->status() != 201) {
-            throw new \Exception('Error while checking safe browsing url ('. $response->body() .')');
+            throw new \Exception('Error while checking safe browsing url ('.$response->body().')');
         }
 
         $matches = $response->json();
