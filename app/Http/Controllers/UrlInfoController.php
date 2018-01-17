@@ -3,24 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Url;
-use Illuminate\Http\Request;
 
 class UrlInfoController extends Controller
 {
-    /**
-     * Create a short url.
-     */
-    public function store(Request $request)
-    {
-        $this->validate($request, [
-            'url' => 'required|url',
-        ]);
-
-        $url = Url::shorten($request->get('url'));
-
-        return view('url.show')->with(compact('url'));
-    }
-
     /**
      * Redirect to the long url.
      *
