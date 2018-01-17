@@ -41,7 +41,7 @@ class SafeBrowsing
      */
     protected function checkSafeSearchApi($urls)
     {
-        $matches = Zttp::asJson()->post(
+        $response = Zttp::asJson()->post(
             $this->safeSearchUrl(),
             [
                 'threatInfo' => [
@@ -51,7 +51,13 @@ class SafeBrowsing
                     'threatEntries'    => $urls->all(),
                 ],
             ]
-        )->json();
+        );
+
+        if ($response->status() != 200 && $response->status() != 201) {
+            throw new \Exception('Error while checking safe browsing url ('. $response->body() .')');
+        }
+
+        $matches = $response->json();
 
         return $matches;
     }
